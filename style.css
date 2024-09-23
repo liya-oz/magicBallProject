@@ -1,0 +1,68 @@
+body {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f0f0f0; /* Optional background color */
+}
+
+.container {
+  margin: 5% 20%; /* Default for larger screens */
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px; /* Set a max width for better usability */
+  overflow-y: auto;
+
+  background-color: white; /* Fallback color */
+  background-image: url('assets/images/universe.jpg' ); /* Replace with your image path */
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  color: rgba(235, 212, 243, 0.912);
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    margin: 5% 10%; /* Less margin for smaller screens */
+  }
+}
+
+
+img {
+  max-width: 90%; /* Photo should take 40% of the container */
+  height: auto;
+  margin: 20px 0; /* Add space around the image */
+}
+
+button {
+  padding: 10px 20px;
+  background-color:rgba(192, 98, 220, 0.519); /* Green background */
+  color: white;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+button:hover {
+  background-color: rgba(192, 98, 220, 0.847); /* Darker green on hover */
+}
+
+p {
+  margin-top: 20px; /* Space above the paragraph */
+}
+
+.terminal {
+  padding: 20px; /* Padding around terminal text */
+  overflow-y: auto; /* Enable scrolling if needed */
+  background-color: rgb(255, 255, 255); /* Slightly transparent background */
+  background-color: #f0f0f0; /* Optional background color */
+  border-radius: 5px; /* Rounded corners */
+  color: #00ff00; /* Green text color */
+  line-height: 40px; /* Match line-height with height for vertical centering */
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace; /* Use monospace font for terminal look */
+}
