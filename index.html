@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Magic Ball</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <audio
+      id="audio"
+      src="assets/videoplayback.mp3"
+      preload="auto"
+      autoplay
+      muted
+    ></audio>
     <div class="container" id="block1">
-        <h1>It's the Magic Ball!</h1>
-        
-        <img id="image" src="assets/images/crystal-ball.jpg" alt="Crystal Magic Ball">
-        <details>
-          <summary></summary>
-          <p>Wow! Good eye!</p>
-        </details>
-        <div><button id="start-button">Ask me!</button></div>
+      <h2>Welcome to the Magic Ball!</h2>
+      <h4>Need a quick decision? Just ask the Tech Universe!</h4>
+      <img
+        class="magic-image"
+        src="assets/images/crystal-ball.jpg"
+        alt="Crystal Magic Ball"
+      />
+      <div>
+        <button id="start-button">Start!</button>
+      </div>
     </div>
+    <div class="container" id="block2" style="display: none">
+      <h2>Just remember, the answers will be as binary: yes or no! 🤖</h2>
+      <img
+        class="magic-image"
+        src="assets/images/crystal-ball.jpg"
+        alt="Crystal Magic Ball"
+      />
 
-    <div class="container" id="block2" style="display: none;">
-        <h3>Just remember, the answers will be as binary: yes or no! 🤖</h3>
-        <img id="image" src="assets/images/crystal-ball.jpg" alt="Crystal Magic Ball">
-       
-        <button id="askAwayButton">Ask Away!</button>
-      
-      <div id="terminal" class="terminal" style="display: none;"></div>
-   
-  </div>
-  
-  
-
-    <div id="terminal" class="terminal" style="display: none;">
-        <!-- Terminal-like messages will be displayed here -->
+      <div><button id="askAwayButton">Ask Away!</button></div>
     </div>
-
-    <div class="container" id="block3" style="display: none;">
-        <h1>So Tech Universe says</h1>
+    <div class="container" id="block3" style="display: none">
+      <h1>So Tech Universe says:</h1>
+      <div class="answer-box">
         <p id="answer"></p>
-        <button id="undoButton">Undo All This Magic!</button>
+      </div>
+      <button id="undoButton">Undo the Magic!</button>
     </div>
-
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

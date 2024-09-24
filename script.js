@@ -1,78 +1,96 @@
-// Main function to initialize the logic
-function main() {
-  // Select elements from the DOM
+'use strict';
+
+function setupAudio() {
+  const audio = document.getElementById('audio');
+
+  audio
+    .play()
+    .then(() => {
+      console.log('Audio autoplay started muted.');
+    })
+    .catch((error) => {
+      console.log('Autoplay failed: ', error);
+    });
+
+  document
+    .getElementById('askAwayButton')
+    .addEventListener('click', function () {
+      audio.muted = false;
+      audio.currentTime = 0;
+      audio
+        .play()
+        .then(() => {
+          console.log('Audio is playing after unmuting.');
+        })
+        .catch((error) => {
+          console.log('Error playing audio: ', error);
+        });
+    });
+}
+
+function setupStartButton() {
   const startButton = document.getElementById('start-button');
   const block1 = document.getElementById('block1');
   const block2 = document.getElementById('block2');
-  const terminal = document.getElementById('terminal'); // Terminal for loading messages
-  const undoButton = document.getElementById('undoButton');
 
-  const loadingMessages = [
-      "🚀 Initiating launch sequence to reach the Tech Universe!",
-      "🛸 I'm off to the Tech Universe to fetch the answers for you!",
-      "🤔 Asking the all-knowing Code Wizards for the answer to your burning question...",
-      "📦 Wrapping it up in a slick JSON package for optimal transport.",
-      "🛸 Racing back to you faster than your console.log can print!",
-      "🎉 Ta-da! Here you go: the answer you've been waiting for!"
-  ];
-
-  // Add event listener to the start button
-  startButton.addEventListener('click', function() {
-      block1.style.display = 'none'; // Hide block1
-      block2.style.display = 'block'; // Show block2
-      block2.scrollIntoView({ behavior: 'smooth' }); // Scroll to block2
-  });
-
-  // Add event listener to the ask button
-  document.getElementById('askAwayButton').addEventListener('click', function() {
-      simulateLoading(); // Start loading simulation
-  });
-
-  // Function to simulate loading process
-  function simulateLoading() {
-      terminal.style.display = 'block'; // Show the terminal
-      terminal.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      let index = 0;
-      const interval = setInterval(() => {
-          if (index < loadingMessages.length) {
-              terminal.innerHTML = `<p>${loadingMessages[index]}</p>`; // Update terminal content
-              index++;
-          } else {
-              clearInterval(interval);
-              // Transition to block3 after loading
-              block3.style.display = 'block'; // Show block3
-              block3.scrollIntoView({ behavior: 'smooth' });
-              displayAnswer(); // Call to display the answer
-          }
-      }, 1000); // Change every second
-  }
-
-  // Function to display the answer
-  function displayAnswer() {
-      const answers = ["Yes!", "No!", "It’s not in my scope to answer!"];
-      const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
-      const answerElement = document.getElementById('answer');
-
-      let countdown = 3; // Start the countdown from 3 seconds
-      answerElement.innerText = `Answer in ${countdown}...`;
-
-      const countdownInterval = setInterval(() => {
-          countdown--;
-          if (countdown > 0) {
-              answerElement.innerText = `Answer in ${countdown}...`;
-          } else {
-              clearInterval(countdownInterval); // Stop the countdown
-              answerElement.innerText = randomAnswer; // Show the answer after countdown
-          }
-      }, 1000); // 1000 milliseconds = 1 second
-  }
-
-  // Undo button to restart the process
-  undoButton.addEventListener('click', function() {
-      location.reload(); // Reload the page to restart everything
+  startButton.addEventListener('click', function () {
+    block1.style.display = 'none';
+    block2.style.display = 'block';
+    block2.scrollIntoView({ behavior: 'smooth' });
   });
 }
 
-// Call the main function on page load
+function setupAskAwayButton() {
+  const block2 = document.getElementById('block2');
+  const block3 = document.getElementById('block3');
+
+  document
+    .getElementById('askAwayButton')
+    .addEventListener('click', function () {
+      block2.style.display = 'none';
+      block3.style.display = 'block';
+      block3.scrollIntoView({ behavior: 'smooth' });
+      displayAnswer();
+    });
+}
+
+function displayAnswer() {
+  const answers = ['Yes!', 'No!', 'It’s not in my scope to answer!'];
+  const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+  const answerElement = document.getElementById('answer');
+
+  let countdown = 3;
+  answerElement.innerText = `Answer in ${countdown}...`;
+
+  const countdownInterval = setInterval(() => {
+    countdown--;
+    if (countdown > 0) {
+      answerElement.innerText = `Answer in ${countdown}...`;
+    } else {
+      clearInterval(countdownInterval);
+      answerElement.innerText = randomAnswer;
+    }
+  }, 1000);
+}
+
+function setupUndoButton() {
+  const block1 = document.getElementById('block1');
+  const block2 = document.getElementById('block2');
+  const block3 = document.getElementById('block3');
+  const undoButton = document.getElementById('undoButton');
+
+  undoButton.addEventListener('click', function () {
+    block1.style.display = 'block';
+    block2.style.display = 'none';
+    block3.style.display = 'none';
+  });
+}
+
+function main() {
+  setupAudio();
+  setupStartButton();
+  setupAskAwayButton();
+  setupUndoButton();
+}
+
 window.onload = main;
