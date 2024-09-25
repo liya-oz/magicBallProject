@@ -55,7 +55,7 @@ function setupAskAwayButton() {
 }
 
 function displayAnswer() {
-  const answers = ['Yes!', 'No!', 'It’s not in my scope to answer!'];
+  const answers = ['Yes!', 'No!'];
   const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
   const answerElement = document.getElementById('answer');
 
