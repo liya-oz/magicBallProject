@@ -9,14 +9,6 @@ The main goal of creating this project was to practice using the `main` function
 ![Preview of the Magic Ball Project](assets/images/image.png)
 
 
-### Main Function in this Project
 
-```javascript
-function main() {
-  setupAudio();
-  setupStartButton();
-  setupAskAwayButton();
-  setupUndoButton();
-}
-```
+
 This is an open-source project, and I invite everyone to participate in its development and improvement!
