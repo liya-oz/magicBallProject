@@ -1,7 +1,12 @@
 'use strict';
 
+const block1 = document.getElementById('block1');
+const block2 = document.getElementById('block2');
+const block3 = document.getElementById('block3');
+let audio;
+
 function setupAudio() {
-  const audio = document.getElementById('audio');
+ audio = document.getElementById('audio');
 
   audio
     .play()
@@ -30,8 +35,6 @@ function setupAudio() {
 
 function setupStartButton() {
   const startButton = document.getElementById('start-button');
-  const block1 = document.getElementById('block1');
-  const block2 = document.getElementById('block2');
 
   startButton.addEventListener('click', function () {
     block1.style.display = 'none';
@@ -41,9 +44,6 @@ function setupStartButton() {
 }
 
 function setupAskAwayButton() {
-  const block2 = document.getElementById('block2');
-  const block3 = document.getElementById('block3');
-
   document
     .getElementById('askAwayButton')
     .addEventListener('click', function () {
@@ -69,14 +69,15 @@ function displayAnswer() {
     } else {
       clearInterval(countdownInterval);
       answerElement.innerText = randomAnswer;
+     if (audio) {
+        audio.pause();
+        console.log('Audio stopped after receiving the answer.');
+      }
     }
   }, 1000);
 }
 
 function setupUndoButton() {
-  const block1 = document.getElementById('block1');
-  const block2 = document.getElementById('block2');
-  const block3 = document.getElementById('block3');
   const undoButton = document.getElementById('undoButton');
 
   undoButton.addEventListener('click', function () {
