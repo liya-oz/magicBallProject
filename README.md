@@ -1,8 +1,10 @@
-# Magic Ball Project
+# Magic Ball Project 
 
 This is a simple web-based "Magic Ball" application that helps users make decisions by providing a random "Yes" or "No" response. The project is built using HTML, CSS, and JavaScript, with a feature for audio playback.
 
 The main goal of creating this project was to practice using the `main` function and `Math.floor()` statement for generating random responses.
+
+Try out [here](https://liya-oz.github.io/magicBallProject/)!
 
 ### Preview of the Web Page:
 
